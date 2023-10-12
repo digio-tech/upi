@@ -85,7 +85,6 @@ plugins {
 ```
 
 **Step 6.**
-
 In your root-level (project-level) Gradle file (<project>/build.gradle.kts or <project>/build.gradle), add the Crashlytics and google service Gradle plugin to the plugins block. Ignore incase already add.
 
 ```
