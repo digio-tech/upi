@@ -27,7 +27,7 @@ Add the JitPack.io repository to your build file. Add it in your root build.grad
 Add the digio upi dependency (build.gradle (module app)). Use latest version
 
 	dependencies {
-	        implementation ("com.github.digio-tech:upi:v1.0.0-beta02")
+	        implementation ("com.github.digio-tech:upi:v1.0.0-beta03")
 	}
 
 **Step 3.**
