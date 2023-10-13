@@ -170,8 +170,8 @@ DigioCallback.register().transactionEvents.observe(this,Observer{ data ->
 | Status    | Response                |
 | :-------- | :------------------------- |
 | `EVENTS`| DigioUPIEvents(action = DIGIO_INITIATED, screen = UPI_PAGE)  |
-| `SUCCESS`| DigioUpiResponse(nachId= ENA23101017504882619RVM5Y1DTYPEUP, message= Mandate REGISTER_SUCCESS, statusCode= 1103, status= register_success )  |
-| `FAILURE`| DigioUpiResponse(nachId= ENA23101017504882619RVM5Y1DTYPEUP, message= Transaction cancelled, statusCode= 1105, status= partial )  |
+| `SUCCESS`| DigioUpiResponse(nachId= ENA23101017504882619RVM5Y1DTYPEUP, message= Mandate REGISTER_SUCCESS, statusCode= 1103, status= register_success, crash_report= null )  |
+| `FAILURE`| DigioUpiResponse(nachId= ENA23101017504882619RVM5Y1DTYPEUP, message= Transaction cancelled, statusCode= 1105, status= partial, crash_report= null )  |
 | `PARTIAL`| DigioUpiResponse(nachId= ENA231012193700713FA5VYQRZT6916UP, message= Mandate created partial, statusCode= 1108, status= partial, crash_report= null )  |
 
 
