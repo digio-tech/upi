@@ -8,6 +8,7 @@
 
 
 ### **How to Integrate?**
+**Digio SDK supports android version 5.0 and above (SDK level 21 above)**
 
 **Step 1.**
 Add the JitPack.io repository to your build file. Add it in your root build.gradle(project) or settings.gradle.kts (project settings) at the end of repositories. Ignore incase already added to your project.
@@ -58,7 +59,6 @@ dependencies {
     // networking
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.okhttp3:okhttp:4.11.0")
-    implementation ("com.squareup.okhttp3:logging-interceptor:4.8.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("androidx.fragment:fragment-ktx:1.6.1")
     
@@ -102,8 +102,9 @@ Add digio Builder and pass required data.
         try {
             val digio = Digio.Builder()
                 .clientKeys("clientId","clientSecret") /** Mandatory Field**/
-                .nachId("nachId") /** Mandatory:- Start with ENA..UP **/
+                .setId("nachId/KycId") /** Mandatory Field **/
                 .environment(DigioEnvironment.PRODUCTION)
+		.serviceType(DigioService.MANDATE) /** MANDATE or REVERSE_PENNY_DROP **/
                 .build()
             digio.start(mActivity) 
         }catch (e:Exception){
@@ -113,8 +114,8 @@ Add digio Builder and pass required data.
     }
 ```
 **Step 8.**
-Register DigioCallback to observe SUCCESS/FAILURE response. Observer should be in Activity/Fragment inside onCreate/onViewCreated
-
+Register DigioCallback to observe SUCCESS/FAILURE response. Observer should be in Activity/Fragment inside onCreate/onViewCreated.
+If called after onResume of Activity/Fragment will not recive any callback, If activity is recreated due to any configuration changes. 
 ```
 DigioCallback.register().transaction.observe(this, Observer {
             response -> when(response.status){
@@ -151,8 +152,9 @@ DigioCallback.register().transactionEvents.observe(this,Observer{ data ->
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `clientId` `clientSecret` | `string` | **Mandatory**. Your clientId and clientSecret key  |
-| `nachId` | `string` | **Mandatory**. Your Nach Id |
+| `setId` | `string` | **Mandatory**. Your Nach Id for Mandate or KYC ID for Reverse penny drop |
 | `PRODUCTION` `SANDBOX` | `DigioEnvironment` | **Mandatory**. Environment can be SANDBOX or PRODUCTION |
+| `MANDATE` `REVERSE_PENNY_DROP` | `DigioService` | **Mandatory**. DigioService can be MANDATE or REVERSE_PENNY_DROP |
 
 
 #### Error code and Description
