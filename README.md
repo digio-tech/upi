@@ -115,7 +115,7 @@ Add digio Builder and pass required data.
 ```
 **Step 8.**
 Register DigioCallback to observe SUCCESS/FAILURE response. Observer should be in Activity/Fragment inside onCreate/onViewCreated.
-If called after onResume of Activity/Fragment will not recive any callback, If activity is recreated due to any configuration changes. 
+If called after onResume of Activity/Fragment will not receive any callback, If activity is recreated due to any configuration changes. 
 ```
 DigioCallback.register().transaction.observe(this, Observer {
             response -> when(response.status){
